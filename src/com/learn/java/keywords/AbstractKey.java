@@ -1,5 +1,9 @@
 package com.learn.java.keywords;
 
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.OptionalInt;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.NDC;
 
@@ -39,6 +43,14 @@ class Student extends Main
 	  public void study() { // the body of the abstract method is provided here
 		NDC.push(Student.class.getName());
 	    logger.info("Studying all day long");
+	   int aar[]= {1,2,9};
+	    System.out.println(Arrays.stream(aar).sum());
+	   
+	    System.out.println();
+	    System.out.println(Arrays.stream(aar).max());
+	    
+	    Optional<OptionalInt> i=Optional.of(Arrays.stream(aar).min()); 
+	    System.out.println(i.get());
 	  }
 	
 }

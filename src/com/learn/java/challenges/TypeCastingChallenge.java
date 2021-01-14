@@ -17,5 +17,8 @@ public class TypeCastingChallenge {
 		short newShortVal=(short) (1000+10*(bt+newShort+newIntVal));
 		logger.info("short value::"+newShortVal);
 	}
+	
+	  
+	}
 
-}
+
