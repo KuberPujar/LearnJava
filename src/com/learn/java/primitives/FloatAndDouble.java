@@ -20,9 +20,12 @@ public class FloatAndDouble {
         logger.info("minimum value of Double::"+minDoubleVal);
         logger.info("maximum value of Double::"+maxDoubleVal);
         
-        int intVal=500;
-        double doubleVal=500.789d;
-        float floatVal=500.890f;
+        @SuppressWarnings("unused")
+		int intVal=500;
+        @SuppressWarnings("unused")
+		double doubleVal=500.789d;
+        @SuppressWarnings("unused")
+		float floatVal=500.890f;
 	}
 
 }

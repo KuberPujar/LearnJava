@@ -3,10 +3,10 @@ package com.lean.java.multithreading;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import org.apache.log4j.Logger;
-import org.apache.log4j.NDC;
 
 public class ProducerConsumer {
 	private static ArrayBlockingQueue<Integer> bqueue = new ArrayBlockingQueue<Integer>(10);
+	@SuppressWarnings("unused")
 	private static final Logger logger = Logger.getLogger(ProducerConsumer.class);
 
 	public static void main(String[] args) throws InterruptedException {

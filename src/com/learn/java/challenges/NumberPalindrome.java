@@ -4,7 +4,7 @@ public class NumberPalindrome {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(isPalindrome(323));
+		System.out.println(isPalindrome(1020));
 	}
 
 	public static boolean isPalindrome(int number) {
