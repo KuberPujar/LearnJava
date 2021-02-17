@@ -15,6 +15,7 @@ public class Album {
 		this.songs = new ArrayList<Song>();
 	}
 
+	
 	private Song findSong(String title) {
 		for (Song checkedSong : this.songs) {
 			if (checkedSong.getTitle().equalsIgnoreCase(title)) {
