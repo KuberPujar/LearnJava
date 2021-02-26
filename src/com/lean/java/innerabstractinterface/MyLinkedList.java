@@ -31,9 +31,8 @@ public class MyLinkedList implements NodeList {
 				} else {
 					// there is no next, so insert it at the end of list.
 					currentItem.setNext(newItem);
-					newItem.setPrevious(currentItem);
+					return true;
 				}
-				return true;
 			} else if (comparison > 0) {
 				// then new item is less, insert before it
 				if (currentItem.previous() != null) {
