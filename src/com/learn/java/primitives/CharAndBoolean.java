@@ -5,7 +5,7 @@ import org.apache.log4j.NDC;
 
 public class CharAndBoolean {
 	private static final Logger logger = Logger.getLogger(CharAndBoolean.class);
-	@SuppressWarnings("unused")
+	//@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		NDC.push(CharAndBoolean.class.getName());
 		char myChar='D';
@@ -15,7 +15,7 @@ public class CharAndBoolean {
 		char anotherUnicode='\u00A9';
 		logger.info("anotherUnicode::"+anotherUnicode);
 		
-		@SuppressWarnings("unused")
+		//@SuppressWarnings("unused")
 		boolean myTrueFlag=true;
 		boolean myFalseFlag=false;
 		//int,long,double,char,float,double,byte,boolean
