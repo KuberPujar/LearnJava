@@ -4,7 +4,7 @@ public class LeapYear {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(isLeapYear(1800));
+		System.out.println(isLeapYear(2024));
 	}
 
 	public static boolean isLeapYear(int year) {

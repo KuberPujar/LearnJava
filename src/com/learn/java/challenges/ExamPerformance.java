@@ -28,7 +28,7 @@ class ExamPerformanceResult {
             for(int i=0;i<tamil.length;i++)
             {
                 ttotal=ttotal+tamil[i];
-                if(tamil[i]<=passingMarks){
+                if(tamil[i]<passingMarks){
                     tCount=+tCount;
                     tCount++;
                 }
@@ -40,7 +40,7 @@ class ExamPerformanceResult {
             for(int i=0;i<english.length;i++)
             {
                 etotal=etotal+english[i];
-                if(english[i]<=passingMarks)
+                if(english[i]<passingMarks)
                 {
                 	eCount=+eCount;
                 	   eCount++;
@@ -53,7 +53,7 @@ class ExamPerformanceResult {
             for(int i=0;i<maths.length;i++)
             {
                 mtotal=mtotal+maths[i];
-                if(maths[i]<=passingMarks)
+                if(maths[i]<passingMarks)
                 {
                 	mCount=+mCount;
                 	   mCount++;
@@ -66,7 +66,7 @@ class ExamPerformanceResult {
             for(int i=0;i<science.length;i++)
             {
                 stotal=stotal+science[i];
-                if(science[i]<=passingMarks)
+                if(science[i]<passingMarks)
                 {
                 	sCount=+sCount;
                 	   sCount++;
@@ -79,7 +79,7 @@ class ExamPerformanceResult {
             for(int i=0;i<social.length;i++)
             {
                 sstotal=sstotal+social[i];
-                if(social[i]<=passingMarks)
+                if(social[i]<passingMarks)
                 {
                 	ssCount=+ssCount;
                 	   ssCount++;

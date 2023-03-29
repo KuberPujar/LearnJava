@@ -5,6 +5,7 @@ import java.math.*;
 import java.security.*;
 import java.text.*;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.concurrent.*;
 import java.util.function.*;
 import java.util.regex.*;
@@ -22,25 +23,42 @@ class Result {
 	 */
 
 	public static char getMaxOccuredChar(String input) {
-		char maxiOccredChar = 0;
-		if (input.length() > 0 && !input.isEmpty()) {
-			HashMap<Character, Integer> hashMap = new HashMap<>();
-			int charCount = 0;
-			for (int i = 0; i <=input.length(); i--) {
-				if (input.charAt(i) == input.charAt(i + 1)) {
-					charCount = +charCount;
-					charCount++;
-				}
-				hashMap.put(input.charAt(i), charCount);
+		input = input.toLowerCase();
+		final int MAX = 256;
+		int count[] = new int[MAX];
+		Map<Character, Integer> hashMap = new LinkedHashMap<>();
+		int len = input.length();
+		for (int i = 0; i < len; i++)
+			count[input.charAt(i)]++;
+
+		char ch[] = new char[input.length()];
+		for (int i = 0; i < len; i++) {
+			ch[i] = input.charAt(i);
+			int find = 0;
+			for (int j = 0; j <= i; j++) {
+
+				if (input.charAt(i) == ch[j])
+					find++;
 			}
 
-			for (Map.Entry<Character, Integer> entry : hashMap.entrySet()) {
-                    char c=entry.getKey();
-                    int count=entry.getValue();
-                    System.out.println(c + count);
+			if (find == 1)
+				if (hashMap.containsKey(input.charAt(i))) {
+					hashMap.put(input.charAt(i), hashMap.get(input.charAt(i)));
+				} else {
+					hashMap.put(input.charAt(i), count[input.charAt(i)]);
+				}
+		}
+		char result = ' ';
+		char c = hashMap.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).findFirst()
+				.get().getKey();
+		char[] cc = input.toCharArray();
+		for (char j : cc) {
+			if (j == c) {
+				result = c;
 			}
 		}
-		return maxiOccredChar;
+
+		return result;
 	}
 
 }
