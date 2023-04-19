@@ -8,6 +8,8 @@
 
 	<properties>
 		<oracle.version>11</oracle.version>
+                <sonar.organization>kuberpujar</sonar.organization>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<build>
