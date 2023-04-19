@@ -5,12 +5,13 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.GCMParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-import org.apache.commons.codec.binary.Base64;
 
 
 public class AES256GCMEncryptDecrypt {
@@ -39,8 +40,8 @@ public class AES256GCMEncryptDecrypt {
 
 		System.out.println("Original Text : " + plainText);
 
-		byte[] cipherText = encrypt(plainText.getBytes(), secretKey, IV);
-		String finalEncryptedString = Base64.encodeBase64URLSafeString(cipherText) ; 
+		byte[] cipherText = encrypt(plainText.getBytes(StandardCharsets.UTF_8), secretKey, IV);
+		String finalEncryptedString = Base64.getEncoder().encodeToString(cipherText) ; 
 		
 		System.out.println("Final Encrypted Text : " +finalEncryptedString );
 		String hashData = hashMessage(plainText) ;
@@ -61,10 +62,10 @@ public class AES256GCMEncryptDecrypt {
 		
 		/******* Decryption of encrypted text generated through NODE *******/
 		
-		String strToDecrypt =   "z0HokoTusvPyFB_GvRJXc-2lE1vApsfxjtdQ3PhsNOif4V7EkTk3l1kmt3BEXamGdcZIgpsrdHYSCthzAQBvUOI32XzvIiTROSVBzHzv6QObGwcyz19LUQFfCA-VPSAYttxnEM8Of6I9ZpdNAmmhVc-uikVwHl26Cf-Dxbr_Pb9xqePuaPf-yIAXwgTmUqlx-JjFUA9Yi23mSxIi0sc782vCq_hpxcvJcD_DH7DXf8YZpC0hVi7q0uDEWizLxPtHO86RDmhkD38XxdMvP0ejMuJfRs05WYMcvCXE5qS6qo-smTQREYcOi_q3CcPjLrYQpQT28pT9YyC8jxgAYE9VEhQo0A" ;
+		//String strToDecrypt =   "z0HokoTusvPyFB_GvRJXc-2lE1vApsfxjtdQ3PhsNOif4V7EkTk3l1kmt3BEXamGdcZIgpsrdHYSCthzAQBvUOI32XzvIiTROSVBzHzv6QObGwcyz19LUQFfCA-VPSAYttxnEM8Of6I9ZpdNAmmhVc-uikVwHl26Cf-Dxbr_Pb9xqePuaPf-yIAXwgTmUqlx-JjFUA9Yi23mSxIi0sc782vCq_hpxcvJcD_DH7DXf8YZpC0hVi7q0uDEWizLxPtHO86RDmhkD38XxdMvP0ejMuJfRs05WYMcvCXE5qS6qo-smTQREYcOi_q3CcPjLrYQpQT28pT9YyC8jxgAYE9VEhQo0A" ;
 		
-		String sampleDecrypted = decryptBase64(strToDecrypt, secretKey) ;
-		System.out.println("Sample DeCrypted Text : " + sampleDecrypted);
+		//String sampleDecrypted = decryptBase64(strToDecrypt, secretKey) ;
+		//System.out.println("Sample DeCrypted Text : " + sampleDecrypted);
 		
 		/******* END of Decryption of encrypted text generated through NODE *******/
 		
@@ -92,7 +93,7 @@ public class AES256GCMEncryptDecrypt {
 	}
 	
 	public static String decryptBase64(String encryptedStr, SecretKey key) throws Exception {
-		byte[] toDecyptCipherText = Base64.decodeBase64(encryptedStr) ;
+		byte[] toDecyptCipherText = Base64.getDecoder().decode(encryptedStr) ;
 		byte[] IV =  Arrays.copyOfRange(toDecyptCipherText, 0 , GCM_IV_LENGTH) ;
 		byte[] cipherText = Arrays.copyOfRange(toDecyptCipherText, GCM_IV_LENGTH , toDecyptCipherText.length) ;
 		return decrypt(cipherText, key , IV) ;
@@ -124,7 +125,7 @@ public class AES256GCMEncryptDecrypt {
 		
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
         byte[] hashInBytes = md.digest(message.getBytes(StandardCharsets.UTF_8));
-        String hashString = Base64.encodeBase64URLSafeString(hashInBytes) ; 
+        String hashString = Base64.getEncoder().encodeToString(hashInBytes) ; 
         System.out.println("Base64 hashed message: "+hashString ) ;
         return hashString ;
 	}
