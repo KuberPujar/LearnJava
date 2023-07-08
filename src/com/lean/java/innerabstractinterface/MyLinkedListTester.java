@@ -5,146 +5,146 @@ package com.lean.java.innerabstractinterface;
  * 
  * Implement the following:
  * 
- * 1.  ListItem (abstract class)
+ * 1.Â  ListItem (abstract class)
  * 
- *     -  It has three protected fields. Two ListItems called rightLink and
+ * Â  Â  -Â  It has three protected fields. Two ListItems called rightLink and
  * leftLink, and an Object called value.
  * 
- *     -  A constructor that takes an Object and initialises the field value
+ * Â  Â  -Â  A constructor that takes an Object and initialises the field value
  * with the parameter that was passed in.
  * 
- *     -  And seven methods:
+ * Â  Â  -Â  And seven methods:
  * 
- *         -  next(), setNext(), previous(), setPrevious() and compareTo() which
+ * Â  Â  Â  Â  -Â  next(), setNext(), previous(), setPrevious() and compareTo() which
  * are package-private and abstract (see child class for declaration).
  * 
- *         -  getValue(), takes no parameters and returns its value.
+ * Â  Â  Â  Â  -Â  getValue(), takes no parameters and returns its value.
  * 
- *         -  setValue(), takes an Object and assigns it to value.
+ * Â  Â  Â  Â  -Â  setValue(), takes an Object and assigns it to value.
  * 
- *        
+ * Â  Â  Â  Â 
  * 
- * 2.  Node (concrete class)
+ * 2.Â  Node (concrete class)
  * 
- *     -  It extends ListItem.
+ * Â  Â  -Â  It extends ListItem.
  * 
- *     -  It has a constructor that takes an Object, then calls its parent
+ * Â  Â  -Â  It has a constructor that takes an Object, then calls its parent
  * constructor with the parameter that was passed in.
  * 
- *     -  And five methods which are package-private:
+ * Â  Â  -Â  And five methods which are package-private:
  * 
- *         -  next(), takes no parameters and returns the ListItem to its right.
+ * Â  Â  Â  Â  -Â  next(), takes no parameters and returns the ListItem to its right.
  * 
- *         -  setNext(), takes a ListItem and sets it as its rightLink, then it
+ * Â  Â  Â  Â  -Â  setNext(), takes a ListItem and sets it as its rightLink, then it
  * returns rightLink.
  * 
- *         -  previous(), takes no parameters and returns the ListItem to its
+ * Â  Â  Â Â  Â -Â  previous(), takes no parameters and returns the ListItem to its
  * left.
  * 
- *         -  setPrevious(), takes a ListItem and sets it as its leftLink, then
+ * Â  Â  Â  Â  -Â  setPrevious(), takes a ListItem and sets it as its leftLink, then
  * it returns leftLink.
  * 
- *         -  compareTo(), takes a ListItem and compares it to the ListItem that
+ * Â  Â  Â  Â  -Â  compareTo(), takes a ListItem and compares it to the ListItem that
  * called this method. Use value from ListItem for comparison. If this value is
  * greater than the value that was passed in, then it should return a number
  * greater than zero. If vice versa, then it should return a number less than
  * zero, and zero if equal.
  * 
- * 3.  MyLinkedList (concrete class)
+ * 3.Â  MyLinkedList (concrete class)
  * 
- *     -  It implements NodeList.
+ * Â  Â  -Â  It implements NodeList.
  * 
- *     -  It has one field of type ListItem called root.
+ * Â  Â  -Â  It has one field of type ListItem called root.
  * 
- *     -  A constructor that takes a ListItem and initialises the field root
+ * Â  Â  -Â  A constructor that takes a ListItem and initialises the field root
  * with the newly passed in parameter.
  * 
- *     -  And four methods:
+ * Â  Â  -Â  And four methods:
  * 
- *         -  getRoot(), getter for root.
+ * Â  Â  Â  Â  -Â  getRoot(), getter for root.
  * 
- *         -  addItem(), takes a ListItem and returns true if it was added
+ * Â  Â  Â  Â  -Â  addItem(), takes a ListItem and returns true if it was added
  * successfully or false otherwise. If the item is already present, it doesn't
  * get added. Use compareTo() to place the item in its proper order.
  * 
- *         -  removeItem(), takes a ListItem and returns true if it was removed
+ * Â  Â  Â  Â  -Â  removeItem(), takes a ListItem and returns true if it was removed
  * successfully or false otherwise.
  * 
- *         -  traverse(), takes the root as an argument and does not return
+ * Â  Â  Â  Â  -Â  traverse(), takes the root as an argument and does not return
  * anything. If the root is null it prints out: The list is empty, otherwise
  * print each value on a separate line.
  * 
- * 4.  NodeList (interface)
+ * 4.Â  NodeList (interface)
  * 
- *     -  It has four methods:
+ * Â  Â  -Â  It has four methods:
  * 
- *         -  getRoot(), addItem(), removeItem() and traverse() which are
+ * Â  Â  Â  Â  -Â  getRoot(), addItem(), removeItem() and traverse() which are
  * package-private and abstract (see child class for declaration).
  * 
- * 5.  SearchTree (concrete class)
+ * 5.Â  SearchTree (concrete class)
  * 
- *     -  It implements NodeList.
+ * Â  Â  -Â  It implements NodeList.
  * 
- *     -  It has one field of type ListItem called root.
+ * Â  Â  -Â  It has one field of type ListItem called root.
  * 
- *     -  A constructor that takes a ListItem and initialises the field root
+ * Â  Â  -Â  A constructor that takes a ListItem and initialises the field root
  * with the newly passed in parameter.
  * 
- *     -  And five methods:
+ * Â  Â  -Â  And five methods:
  * 
- *         -  getRoot(), getter for root.
+ * Â  Â  Â  Â  -Â  getRoot(), getter for root.
  * 
- *         -  addItem(), same as MyLinkedList.
+ * Â  Â  Â  Â  -Â  addItem(), same as MyLinkedList.
  * 
- *         -  removeItem(), same as MyLinkedList.
+ * Â  Â  Â  Â  -Â  removeItem(), same as MyLinkedList.
  * 
- *         -  performRemoval(), takes two ListItems, the item to be removed and
+ * Â  Â  Â  Â  -Â  performRemoval(), takes two ListItems, the item to be removed and
  * its parent. It doesn't return anything and is declared as private. Call this
  * method from removeItem() when the item is found.
  * 
- *         -  traverse(), takes the root as an argument and does not return
+ * Â  Â  Â  Â  -Â  traverse(), takes the root as an argument and does not return
  * anything. It uses recursion to visit all the branches in the tree (Inorder).
  * Print each value on a seperate line.
  * 
- * TIP:  The rules for adding an item to the linked tree are: 
+ * TIP:Â  The rules for adding an item to the linked tree are:Â 
  * 
- *           If the head of the tree is null, make the head refer to the item to
+ * Â  Â  Â  Â  Â  If the head of the tree is null, make the head refer to the item to
  * be added.
  * 
- *           If the item to be added is less than the current item in the tree,
+ * Â  Â  Â  Â  Â  If the item to be added is less than the current item in the tree,
  * add the item before the current item (i.e., make the previous item's "next"
  * refer to the new item, and the new item's "next" refer to the current item).
  * 
- *           If the item to be added is greater than the current item, move onto
+ * Â  Â  Â  Â  Â  If the item to be added is greater than the current item, move onto
  * the next item and compare again (if there is no next item, then that is where
  * the new item belongs).
  * 
- * TIP:  When adding items to a Binary Search Tree, if the item to be added is
+ * TIP:Â  When adding items to a Binary Search Tree, if the item to be added is
  * less than the current item - then move to the left.
  * 
- *          If it is greater than the current item - then move to the right.
+ * Â  Â  Â  Â  Â If it is greater than the current item - then move to the right.
  * 
- *          The new item is added when an attempt to move in the required
+ * Â  Â  Â  Â  Â The new item is added when an attempt to move in the required
  * direction would involve following a null reference.
  * 
- *          Once again, duplicates are not allowed.
+ * Â  Â  Â  Â  Â Once again, duplicates are not allowed.
  * 
- * TIP:  Inorder = print the previous node, then the parent node, and then the
+ * TIP:Â  Inorder = print the previous node, then the parent node, and then the
  * next node (left -> node -> right).
  * 
- * TIP:  Be extremely careful with the spelling of the names of the fields,
+ * TIP:Â  Be extremely careful with the spelling of the names of the fields,
  * constructors and methods.
  * 
- * TIP:  Be extremely careful about spaces and spelling in the printed output
+ * TIP:Â  Be extremely careful about spaces and spelling in the printed output
  * from the traverse() method.
  * 
- * NOTE:  All fields are private (unless stated otherwise).
+ * NOTE:Â  All fields are private (unless stated otherwise).
  * 
- * NOTE:  All constructors are public.
+ * NOTE:Â  All constructors are public.
  * 
- * NOTE:  All methods are public (unless stated otherwise).
+ * NOTE:Â  All methods are public (unless stated otherwise).
  * 
- * NOTE:  Do not add a main method to the solution code.
+ * NOTE:Â  Do not add a main method to the solution code.
  **/
 
 public class MyLinkedListTester {
@@ -158,7 +158,7 @@ public class MyLinkedListTester {
 		 * for (String s : ss) { list.addItem(new Node(s)); } ///list.removeItem(new
 		 * Node("8")); list.traverse(list.getRoot());
 		 */
-
+                //test null tree
 		SearchTree searchTree = new SearchTree(null);
 		searchTree.traverse(searchTree.getRoot());
 
